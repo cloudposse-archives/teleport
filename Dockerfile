@@ -25,6 +25,7 @@ ADD rootfs/ /
 RUN chmod +x /usr/bin/teleport-node.sh
 RUN chmod +x /usr/bin/teleport-proxy.sh
 RUN chmod +x /usr/bin/teleport-auth.sh
+RUN chmod +x /usr/bin/teleport-auth-connectors.sh
 
 EXPOSE 3022-3025 3080
 
