@@ -1,0 +1,20 @@
+kind: github
+version: v3
+metadata:
+  # connector name that will be used with `tsh login`
+  name: github
+spec:
+  # client ID of Github OAuth app
+  client_id: $TELEPORT_GITHUB_CLIENT_ID
+  # client secret of Github OAuth app
+  client_secret: $TELEPORT_GITHUB_CLIENT_SECRET
+  # connector display name that will be shown on web UI login screen
+  display: Github
+  # callback URL that will be called after successful authentication
+  redirect_url: $TELEPORT_GITHUB_REDIRECT_URL
+  # mapping of org/team memberships onto allowed logins and roles
+  teams_to_logins:
+    - organization: $TELEPORT_GITHUB_ORGANIZATION # Github organization name
+      team: $TELEPORT_GITHUB_TEAM # Github team name within that organization
+      # allowed logins for users in this org/team
+      logins: $TELEPORT_GITHUB_LOGINS
