@@ -10,7 +10,7 @@ teleport:
 
     # one-time invitation token used to join a cluster. it is not used on
     # subsequent starts
-    auth_token: $TELEPORT_AUTH_TOKEN
+    auth_token: {{getenv "TELEPORT_AUTH_TOKEN"}}
 
     # when running in multi-homed or NATed environments Teleport nodes need
     # to know which IP it will be reachable at by other nodes
@@ -18,7 +18,7 @@ teleport:
 
     # list of auth servers in a cluster. you will have more than one auth server
     # if you configure teleport auth to run in HA configuration
-    auth_servers: $TELEPORT_AUTH_SERVERS
+    auth_servers: {{getenv "TELEPORT_AUTH_SERVERS"}}
 
     # Teleport throttles all connections to avoid abuse. These settings allow
     # you to adjust the default limits
@@ -36,10 +36,10 @@ teleport:
     # backend if you want to run Teleport in HA configuration.
     storage:
         type: dynamodb
-        region: $REGION
-        table_name: $TELEPORT_DYNAMODB_TABLE_NAME
-        access_key: $TELEPORT_DYNAMODB_ACCESS_KEY_ID
-        secret_key: $TELEPORT_DYNAMODB_SECRET_ACCESS_KEY
+        region: {{getenv "REGION"}}
+        table_name: {{getenv "TELEPORT_DYNAMODB_TABLE_NAME"}}
+        access_key: {{getenv "TELEPORT_DYNAMODB_ACCESS_KEY_ID"}}
+        secret_key: {{getenv "TELEPORT_DYNAMODB_SECRET_ACCESS_KEY"}}
 
 # This section configures the 'auth service':
 auth_service:
@@ -49,7 +49,7 @@ auth_service:
     # defines the types and second factors the auth server supports
     authentication:
         # type can be local or oidc
-        type: $TELEPORT_AUTHENTICATION_TYPE
+        type: {{getenv "TELEPORT_AUTHENTICATION_TYPE"}}
         # second_factor can be off, otp, or u2f
         second_factor: otp
 
@@ -76,8 +76,8 @@ auth_service:
     # We recommend to use tools like `pwgen` to generate sufficiently random
     # tokens of 32+ byte length.
     tokens:
-        - "proxy,node:$TELEPORT_AUTH_TOKEN"
-        - "auth:$TELEPORT_AUTH_TOKEN"
+        - 'proxy,node: {{getenv "TELEPORT_AUTH_TOKEN"}}'
+        - 'auth: {{getenv "TELEPORT_AUTH_TOKEN"}}'
 
     # Optional "cluster name" is needed when configuring trust between multiple
     # auth servers. A cluster name is used as part of a signature in certificates
@@ -97,7 +97,7 @@ ssh_service:
     # IP and the port for SSH service to bind to.
     listen_addr: 0.0.0.0:3022
 
-    labels: $TELEPORT_NODE_LABELS
+    labels: {{getenv "TELEPORT_NODE_LABELS"}}
 
     # enables reading ~/.tsh/environment before creating a session. by default
     # set to false, can be set true here or as a command line flag.
