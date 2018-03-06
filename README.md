@@ -2,7 +2,9 @@
 
 Gravitational [Teleport SSH](https://gravitational.com/teleport/) Docker Implementation.
 
-It supports `Teleport` Auth, Proxy and Node services.
+It supports `Auth`, `Proxy` and `Node` services.
+
+* https://gravitational.com/teleport/docs/architecture/#teleport-cluster
 
 
 ## Help
