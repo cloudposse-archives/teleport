@@ -22,10 +22,10 @@ VOLUME /var/lib/teleport /etc/teleport /host
 
 ADD rootfs/ /
 
-RUN chmod +x /etc/teleport/teleport-node.sh
-RUN chmod +x /etc/teleport/teleport-proxy.sh
-RUN chmod +x /etc/teleport/teleport-auth.sh
+RUN chmod +x /usr/bin/teleport-node.sh
+RUN chmod +x /usr/bin/teleport-proxy.sh
+RUN chmod +x /usr/bin/teleport-auth.sh
 
 EXPOSE 3022-3025 3080
 
-ENTRYPOINT ["/etc/teleport/teleport-node.sh"]
+ENTRYPOINT ["/usr/bin/teleport-node.sh"]

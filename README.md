@@ -62,7 +62,7 @@ See [LICENSE](LICENSE) for full details.
 
 ## About
 
-`teleport` is maintained and funded by [Cloud Posse, LLC][website].
+The `teleport` Docker implementation is maintained and funded by [Cloud Posse, LLC][website].
 
 ![Cloud Posse](https://cloudposse.com/logo-300x69.png)
 
