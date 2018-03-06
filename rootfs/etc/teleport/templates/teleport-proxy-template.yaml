@@ -32,11 +32,6 @@ teleport:
         output: stdout
         severity: INFO
 
-    # Type of storage used for keys. You need to configure this to use etcd
-    # backend if you want to run Teleport in HA configuration.
-    storage:
-        type: bolt
-
 # This section configures the 'auth service':
 auth_service:
     # Turns 'auth' role on. Default is 'yes'
